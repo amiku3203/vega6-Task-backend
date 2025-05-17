@@ -17,13 +17,6 @@ const app = express();
  
 app.use(cors());
 app.use(express.json());
-
-app.use(express.static(path.join(__dirname, 'dist')));
-
-// For any other route not handled by API, send back React's index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
-});
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
